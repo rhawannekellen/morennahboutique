@@ -1,0 +1,5 @@
+Geral! - sem especialista 
+
+lista carrinho style="list-style: none; padding: 0; margin: 20px 0;"
+style="margin-top: 20px; width: 100%; padding: 10px; background-color: #25D366; color: white; border: none; border-radius: 10px; cursor: pointer;"
+style="margin-top: 10px; width: 100%; padding: 10px; background-color: grey; color: white; border: none; border-radius: 10px; cursor: pointer;">

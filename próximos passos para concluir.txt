@@ -1,0 +1,31 @@
+💡 Próximos passos:
+
+Para amanhã dia 23 - inserir campo de quantidade ao lado do botão comprar.
+
+
+Configurar a barra de inicio e o logo (editar algumas coisas depois 19/09)
+Trocar a fonte da letra 
+Aumentar um pouco 
+
+
+
+Adicionar links clicáveis 
+
+Ex: WhatsApp, Instagram, e-mail no footer - ok
+
+
+Estilizar produtos
+
+Grade de produtos, imagens com zoom ao passar o mouse - ok
+
+
+Adicionar um carrossel ou slider - pesquisar sobre 
+
+Para banners ou destaques na página inicial
+
+Melhorar o SEO e acessibilidade
+
+Ex: <main>, <section>, <article>, uso correto de <h1>, <h2> etc.
+
+Publicar seu site
+
