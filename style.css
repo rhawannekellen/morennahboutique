@@ -470,3 +470,40 @@ h3 {
         display: none;
     }
 }
+
+
+/* ===== RESPONSIVIDADE ===== */
+
+
+/* Tablet (2 imagens por linha ou 3 reduzidas) */
+
+@media (max-width: 1024px) {
+    .banner {
+        height: 55vh;
+        /* menor altura */
+    }
+    .banner img {
+        width: 33.33%;
+        /* mantém 3 imagens, só menores */
+    }
+}
+
+
+/* Celular (imagens empilhadas) */
+
+@media (max-width: 768px) {
+    .topbar {
+        height: 60px;
+    }
+    .banner {
+        flex-direction: column;
+        /* empilha as imagens */
+        height: auto;
+    }
+    .banner img {
+        width: 100%;
+        height: 250px;
+        /* imagem alta e bonita no mobile */
+        object-fit: cover;
+    }
+}
