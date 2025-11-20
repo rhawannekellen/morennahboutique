@@ -1,4 +1,4 @@
-/*Reset*/
+/* ====== CONFIGURAÇÕES GERAIS ====== */
 
 * {
     margin: 0;
@@ -6,43 +6,34 @@
     box-sizing: border-box;
 }
 
-
-/* Container*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
 
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 0;
+    background-color: #1C1C1C;
 }
 
 
-/*Header*/
+/* ====== HEADER ====== */
 
-.topo {
-    position: absolute;
-    /* Fica sobre as imagens */
+.header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    background: transparent;
-    /* Inicialmente invisível */
-    transition: 0.3s ease;
-    z-index: 10;
-}
-
-.topo:hover {
-    background: rgba(150, 60, 20, 0.85);
-    /* cor quente/translúcida */
-}
-
-header {
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    flex-wrap: wrap;
-    background-color: #8f0303;
+    z-index: 1000;
+    background: rgba(150, 60, 20, 0.85);
+    backdrop-filter: blur(8px);
 }
 
 .logo-container {
@@ -56,14 +47,14 @@ header {
     width: auto;
 }
 
-.logo-container .nome {
-    font-size: 35px;
-    font-family: Brush Script MT, cursive;
-    color: #0f0f0f;
+.nome {
+    font-size: 32px;
+    font-family: "Brush Script MT", cursive;
+    color: #000;
 }
 
 
-/*Menu*/
+/* Menu Desktop */
 
 .menu {
     display: flex;
@@ -78,6 +69,9 @@ header {
     font-size: 20px;
 }
 
+
+/* Botão Mobile */
+
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -87,60 +81,93 @@ header {
     cursor: pointer;
 }
 
+.menu-toggle span {
+    width: 100%;
+    height: 4px;
+    background: #222;
+    border-radius: 5px;
+}
 
-/*Banner*/
+
+/* ====== MOBILE ====== */
+
+@media(max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: rgba(150, 60, 20, 0.95);
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 0;
+        text-align: center;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .nome {
+        font-size: 24px;
+    }
+    .logo-container img {
+        height: 45px;
+    }
+}
+
+
+/* ====== BANNER ====== */
 
 .banner {
     display: flex;
-    /*Deixa as imagens lado a lado*/
-    width: 1900px;
-    height: 700px;
+    margin-top: 100px;
+    width: 100%;
     overflow: hidden;
 }
 
 .banner img {
-    width: 33.33%;
-    /* Cada uma ocupa 1/3 do espaço */
-    height: 100%;
-    /* Mantém a altura uniforme */
-    display: block;
-    /* Corta proporcionalmente para não distorcer */
-    object-fit: cover;
-    /* Remove pequenos espaços indesejados */
+    width: 100%;
+    height: auto;
 }
 
 
-/*Apresentação*/
+/* ====== APRESENTAÇÃO ====== */
 
 .header-apresentacao {
     text-align: center;
-    font-style: italic;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
+    color: #fff;
+    padding: 30px;
+}
+
+.header-apresentacao h2 {
+    font-size: 28px;
+    color: #ffbd59;
+}
+
+.header-apresentacao p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
 }
 
 
-/*Campo de Busca*/
+/* ====== BARRA DE BUSCA ====== */
 
 #divBusca {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#divBusca form {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
 }
 
 #txtBusca {
-    flex: 1;
-    padding: 12px 15px;
-    font-size: 16px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
 }
 
 #divBusca button {
@@ -154,356 +181,157 @@ header {
     transition: background-color 0.3s;
 }
 
-#divBusca button:hover {
-    background-color: #5a0000;
+
+/* ====== TÍTULOS DE SESSÃO ====== */
+
+h3 {
+    color: #ffbd59;
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 28px;
 }
 
 
-/*Produtos*/
+/* ====== PRODUTOS ====== */
 
 .acessorios {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 40px;
-    background-color: #f8f8f8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 20px 40px;
 }
 
 .produto {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 35px;
+    background: #2a2a2a;
+    width: 230px;
+    padding: 15px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    /*efeito ao passar o mouse por cima do produto*/
-}
-
-.produto:hover {
-    transform: scale(1.03);
+    color: #fff;
+    border: 2px solid #ffbd59;
 }
 
 .produto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
 }
 
 .produto h3 {
-    font-size: 1.2rem;
-    /*dessa forma ajuda no momento da responsividade*/
-    margin-bottom: 5px;
+    font-size: 20px;
+    color: #ffbd59;
 }
 
 .produto p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #333;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.input-qtd {
+    width: 60px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
 }
 
 .produto button {
-    background-color: rgb(228, 167, 105);
-    color: white;
+    padding: 10px;
+    background-color: #ffbd59;
     border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+
+/* ====== BOTÃO FLOTANTE CARRINHO ====== */
+
+#finalizarCompra {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #ffbd59;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
     cursor: pointer;
     font-weight: bold;
 }
 
-.produto button:hover {
-    background-color: brown;
-}
 
-
-/*Rodapé*/
-
-.footer {
-    padding: 40px 20px;
-    font-size: 0.95rem;
-    color: gray;
-    background-color: #f1f1ef;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-rodape {
-    flex: 1 1 200px;
-    min-width: 200px;
-}
-
-.footer-rodape h4 {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    color: gray;
-}
-
-.footer-rodape ul {
-    list-style: none;
-    padding: 0;
-}
-
-.links {
-    text-decoration: none;
-    color: gray;
-}
-
-
-/*Títulos*/
-
-.header-apresentacao h2 {
-    margin-bottom: 15px;
-    padding: 1%;
-}
-
-h3 {
-    font-style: italic;
-    width: 100%;
-    height: 100% auto;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 2%;
-}
-
-.botao-carrinho {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    background-color: #25D366;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-
-/* ====== Campo de quantidade ====== */
-
-.produto label {
-    font-size: 0.9rem;
-    color: #555;
-    margin-right: 5px;
-}
-
-.produto .input-qtd {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-
-/* Efeito ao focar no campo */
-
-.produto .input-qtd:focus {
-    outline: none;
-    border-color: brown;
-    box-shadow: 0 0 5px rgba(165, 42, 42, 0.4);
-}
-
-
-/* Espaçamento entre o campo e o botão */
-
-.produto button {
-    margin-top: 8px;
-}
-
-
-/* Ajuste geral do layout dentro do card */
-
-.produto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-/* Carrinho lateral */
+/* ====== CARRINHO LATERAL ====== */
 
 #carrinhoLateral {
     position: fixed;
     top: 0;
-    right: -400px;
+    right: -350px;
     width: 300px;
     height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    background: #2a2a2a;
+    color: #fff;
     padding: 20px;
-    transition: right 0.3s ease;
+    border-left: 3px solid #ffbd59;
+    transition: 0.4s;
     z-index: 2000;
-}
-
-#carrinhoLateral.aberto {
-    right: 0;
+    overflow-y: auto;
 }
 
 #carrinhoLateral h3 {
-    text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-#carrinhoLateral button {
+#carrinhoLateral.active {
+    right: 0;
+}
+
+#btnFinalizar,
+#fecharCarrinho {
     width: 100%;
-    margin-top: 10px;
     padding: 12px;
+    background: #ffbd59;
     border: none;
-    border-radius: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
 }
 
 
-/* Botão de finalizar via WhatsApp */
+/* ====== RODAPÉ ====== */
 
-#btnFinalizar {
-    background-color: #25D366;
-    color: white;
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+    margin-top: 40px;
+    text-align: center;
 }
 
-#btnFinalizar:hover {
-    background-color: #1ebd58;
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-
-/* Botão de fechar */
-
-#fecharCarrinho {
-    background-color: #ccc;
+.footer-rodape h4 {
+    color: #ffbd59;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-#fecharCarrinho:hover {
-    background-color: #aaa;
+.footer-rodape ul {
+    list-style: none;
 }
 
-
-/* Botão flutuante (abrir carrinho) */
-
-#finalizarCompra {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: brown;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 15px 25px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+.footer-rodape ul li {
+    margin: 5px 0;
 }
 
-#finalizarCompra:hover {
-    background-color: #5a0000;
-}
-
-
-/* Responsividade*/
-
-@media (max-width: 1200px) {
-    .acessorios {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .acessorios {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 30px;
-    }
-    #txtBusca {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-    .menu {
-        flex-direction: column;
-        gap: 30px;
-        /*gap - espaço entre os elementos*/
-        font-size: 24px;
-        text-align: center;
-    }
-    .acessorios {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
-    }
-    #txtBusca {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .acessorios {
-        grid-template-columns: 1fr;
-        padding: 15px;
-    }
-    .logo-container .nome {
-        font-size: 25px;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .menu {
-        display: none;
-    }
-}
-
-
-/* ===== RESPONSIVIDADE ===== */
-
-
-/* Tablet (2 imagens por linha ou 3 reduzidas) */
-
-@media (max-width: 1024px) {
-    .banner {
-        height: 55vh;
-        /* menor altura */
-    }
-    .banner img {
-        width: 33.33%;
-        /* mantém 3 imagens, só menores */
-    }
-}
-
-
-/* Celular (imagens empilhadas) */
-
-@media (max-width: 768px) {
-    .topbar {
-        height: 60px;
-    }
-    .banner {
-        flex-direction: column;
-        /* empilha as imagens */
-        height: auto;
-    }
-    .banner img {
-        width: 100%;
-        height: 250px;
-        /* imagem alta e bonita no mobile */
-        object-fit: cover;
-    }
+.links {
+    text-decoration: none;
+    color: #ffbd59;
 }
